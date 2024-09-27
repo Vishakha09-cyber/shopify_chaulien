@@ -1,0 +1,94 @@
+<div style="background:{{section.settings.background  }}">
+  <div class="page-width1">
+    <div class="customer_reviews {% if template contains 'index' %} border-bottom {% endif %}">
+        <div class="review_head"><span>{{ section.settings.review_head }}</span></div>
+      <div class="reviews_wrapper">
+        <div class="review_banner"> <div class="review_banner_pic"><img src="{{ section.settings.review_img|img_url:'master' }}"></div></div>
+        <div class="review_blocks">
+          {% for block in section.blocks %}
+            <div class="reviews_box">
+                <div class="review_product_image"><img src="{{ block.settings.review_pro|img_url:'master' }}"></div>
+                <div class="review_content_inner">
+                  <div class="profile_with_star">
+                    <span class="name_client">{{ block.settings.name_client }}</span>
+                   {% assign count = 5 %}
+                  {% for i in (1..count) %}<div class="star_review">{{ block.settings.star-review }}</div>{% endfor %}
+                  </div>
+                  <div class="verify_account">{{ block.settings.verfy_svg }}</div>
+                  <div class="revie_text">{{ block.settings.review_pro_txt }}</div>
+                  <div class="review_desc">{{ block.settings.review_info }}</div>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Customer Reviews",
+    "settings": [
+      {
+        "type": "color_background",
+        "id": "background",
+        "label": "Background"
+      },
+      {
+        "type":"text",
+        "id":"review_head",
+        "label":"Heading"
+      },
+      {
+        "type":"image_picker",
+        "id":"review_img",
+        "label":"Image"
+      }
+      
+    ],
+    "blocks":[
+      {
+        "type":"block",
+        "name":"Reviews",
+        "settings": [
+          {
+            "type":"image_picker",
+            "id":"review_pro",
+            "label":"Image"
+          },
+          {
+            "type":"text",
+            "id":"name_client",
+            "label":"Reviewer Name"
+          },
+          {
+            "type":"html",
+            "id":"star-review",
+            "label":"Star Review"
+          },
+          {
+            "type":"html",
+            "id":"verfy_svg",
+            "label":"Vefied Symbol"
+          }, 
+          {
+            "type":"text",
+            "id":"review_pro_txt",
+            "label":"Review Product"
+          },
+          {
+            "type":"text",
+            "id":"review_info",
+            "label":"Review Description"
+          }
+          
+        ]
+      }
+    ],    
+    "presets":[
+      {
+        "name": "Customer Reviews"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,559 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="customer_register_form page-width1">
+  <div class="customer register page-width section-{{ section.id }}-padding">
+  <h1 ><span class="register_account_head">{{ section.settings.heading }}</span></h1>
+    <div class="description">
+      <span>{{ section.settings.info_text }}</span>
+    </div>
+    <div class="chnge_lng">
+      <span>{{ section.settings.text_lang }}</span>
+      <div class="countries_lang">
+        {% comment %}
+        {% for block in section.blocks %}
+          <div class="country_flag" value="{{ block.settings.text_lang }}">
+            <img src="{{ block.settings.country_img | img_url:'small' }}">
+          </div>
+        {% endfor %}
+        {% endcomment %}
+
+
+ {%- if localization.available_languages.size > 1 -%}
+          <localization-form class="small-hide medium-hide" data-prevent-hide>
+            {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
+              <div>
+                <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
+                {%- render 'language-register', localPosition: 'HeaderLanguage' -%}
+              </div>
+            {%- endform -%}
+          </localization-form>
+        {%- endif -%}
+
+      </div>
+    </div>
+    {% comment %}{{ 'customer.register.title' | t }}{% endcomment %}
+  {%- form 'create_customer', novalidate: 'novalidate' -%}
+    {% comment %}
+    {%- if form.errors -%}
+      <h2 class="form__message" tabindex="-1" autofocus>
+        <span class="svg-wrapper">
+          {{- 'icon-error.svg' | inline_asset_content -}}
+        </span>
+        {{ 'templates.contact.form.error_heading' | t }}
+      </h2>
+      <ul>
+        {%- for field in form.errors -%}
+          <li>
+            {%- if field == 'form' -%}
+              {{ form.errors.messages[field] }}
+            {%- else -%}
+              <a href="#RegisterForm-{{ field }}">
+                {{ form.errors.translated_fields[field] | capitalize }}
+                {{ form.errors.messages[field] }}
+              </a>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+    <div class="field">
+      <input
+        type="text"
+        name="customer[first_name]"
+        id="RegisterForm-FirstName"
+        {% if form.first_name %}
+          value="{{ form.first_name }}"
+        {% endif %}
+        autocomplete="given-name"
+        placeholder="{{ 'customer.register.first_name' | t }}"
+      >
+      <label for="RegisterForm-FirstName">
+        {{ 'customer.register.first_name' | t }}
+      </label>
+    </div>
+    <div class="field">
+      <input
+        type="text"
+        name="customer[last_name]"
+        id="RegisterForm-LastName"
+        {% if form.last_name %}
+          value="{{ form.last_name }}"
+        {% endif %}
+        autocomplete="family-name"
+        placeholder="{{ 'customer.register.last_name' | t }}"
+      >
+      <label for="RegisterForm-LastName">
+        {{ 'customer.register.last_name' | t }}
+      </label>
+    </div>
+    <div class="field">
+      <input
+        type="email"
+        name="customer[email]"
+        id="RegisterForm-email"
+        {% if form.email %}
+          value="{{ form.email }}"
+        {% endif %}
+        spellcheck="false"
+        autocapitalize="off"
+        autocomplete="email"
+        aria-required="true"
+        {% if form.errors contains 'email' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-email-error"
+        {% endif %}
+        placeholder="{{ 'customer.register.email' | t }}"
+      >
+      <label for="RegisterForm-email">
+        {{ 'customer.register.email' | t }}
+      </label>
+    </div>
+    {%- if form.errors contains 'email' -%}
+      <span id="RegisterForm-email-error" class="form__message">
+        <span class="svg-wrapper">
+          {{- 'icon-error.svg' | inline_asset_content -}}
+        </span>
+        {{ form.errors.translated_fields.email | capitalize }}
+        {{ form.errors.messages.email }}.
+      </span>
+    {%- endif -%}
+    <div class="field">
+      <input
+        type="password"
+        name="customer[password]"
+        id="RegisterForm-password"
+        aria-required="true"
+        {% if form.errors contains 'password' %}
+          aria-invalid="true"
+          aria-describedby="RegisterForm-password-error"
+        {% endif %}
+        placeholder="{{ 'customer.register.password' | t }}"
+      >
+      <label for="RegisterForm-password">
+        {{ 'customer.register.password' | t }}
+      </label>
+    </div>
+    {%- if form.errors contains 'password' -%}
+      <span id="RegisterForm-password-error" class="form__message">
+        <span class="svg-wrapper">
+          {{- 'icon-error.svg' | inline_asset_content -}}
+        </span>
+        {{ form.errors.translated_fields.password | capitalize }}
+        {{ form.errors.messages.password }}.
+      </span>
+    {%- endif -%}
+    {% endcomment %}
+    {% render 'customer_register_form' %}
+    <button class="primary_btn" id="submitForm">
+      <span>Submit Form</span>
+    </button>
+  {%- endform -%}
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.main-register.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+     {
+      "type":"richtext",
+      "id":"heading",
+      "label":"Heading"
+    },
+    {
+      "type":"richtext",
+      "id":"info_text",
+      "label":"Info"
+    },
+    {
+      "type":"richtext",
+      "id":"text_lang",
+      "label":"Country language"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    },
+    {
+      "type":"header",
+      "content":"Main company information"
+    },
+    {
+      "type":"text",
+      "id":"mian-head1",
+      "label":"Main company information"
+    },
+    
+    {
+      "type": "text",
+      "id": "company_name",
+      "label": "Company name",
+      "info": "Enter the company name"
+    },
+    {
+      "type": "text",
+      "id": "contact_person",
+      "label": "Contact person",
+      "info": "Enter the contact person's name"
+    },
+    {
+      "type": "text",
+      "id": "company_manager",
+      "label": "Company manager / owner",
+      "info": "Enter the name of the company manager or owner"
+    },
+    {
+      "type": "text",
+      "id": "birthdate",
+      "label": "Date of birth",
+      "info": "Enter the date of birth",
+    },
+    {
+      "type": "text",
+      "id": "street",
+      "label": "Street",
+      "info": "Enter the street address & Number"
+    },
+    {
+      "type": "text",
+      "id": "coc",
+      "label": "Upload",
+      "info": "Upload a PDF or JPG (max 10MB)"
+    },
+    {
+      "type": "text",
+      "id": "zip",
+      "label": "Zip code",
+      "info": "Enter the zip code & City Name "
+    },
+    {
+      "type": "text",
+      "id": "country",
+      "label": "Country",
+      "info": "Enter the country"
+    },
+    {
+      "type": "text",
+      "id": "vatnumber",
+      "label": "VAT number",
+      "info": "Enter the VAT number"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "info": "Enter the email address"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Telephone number",
+      "info": "Enter the telephone number"
+    },
+    {
+      "type": "text",
+      "id": "mobile",
+      "label": "Mobile telephone number",
+      "info": "Enter the mobile phone number"
+    },
+    {
+      "type": "text",
+      "id": "language1",
+      "label": "Preferred language of contact",
+    },
+    {
+      "type": "text",
+      "id": "language2",
+      "label": "2nd preferred language of contact",
+    },
+    {
+      "type":"header",
+      "content":"Additional company information"
+    },
+    {
+      "type":"text",
+      "id":"mian-head2",
+      "label":"Additional company information"
+    },
+    {
+      "id": "type_of_company",
+      "type": "text",
+      "label": "Type of company",
+      "info": "(more options possible)"
+    },
+    {
+      "id": "asian_shop",
+      "type": "text",
+      "label": "Asian shop"
+    },
+    {
+      "id": "asian_supermarket",
+      "type": "text",
+      "label": "Asian supermarket"
+    },
+    {
+      "id": "wholesale_subdistributor",
+      "type": "text",
+      "label": "Wholesale/subdistributor"
+    },
+    {
+      "id": "webshop_only",
+      "type": "text",
+      "label": "Webshop only"
+    },
+    {
+      "id": "other",
+      "type": "text",
+      "label": "Other"
+    },
+    {
+      "id": "type_of_company_other",
+      "type": "text",
+      "label": "(other) type of company"
+    },
+    {
+      "id": "type_of_company_webshop",
+      "type": "text",
+      "label": "Webshop URL"
+    },
+    {
+      "id": "company_size",
+      "type": "text",
+      "label": "Company size in m²"
+    },
+    {
+      "id": "warehouse_size",
+      "type": "text",
+      "label": "Warehouse size in m²"
+    },
+    {
+      "id": "company_employees",
+      "type": "text",
+      "label": "Number of employees"
+    },
+    {
+      "id": "other_companies",
+      "type": "text",
+      "label": "Other companies"
+    },
+    {
+      "id": "type_of_customers",
+      "type": "text",
+      "label": "What type of customers do you serve?",
+      "info": "(more options possible)"
+    },
+    {
+      "id": "end_consumer",
+      "type": "text",
+      "label": "End consumer"
+    },
+    {
+      "id": "food_service",
+      "type": "text",
+      "label": "Food service (snack corner/bistro/restaurant/catering)"
+    },
+    {
+      "id": "retail_stores",
+      "type": "text",
+      "label": "Retail stores"
+    },
+    {
+      "id": "food_industry",
+      "type": "text",
+      "label": "Food industry"
+    },
+    {
+      "id": "other-customer",
+      "type": "text",
+      "label": "Other"
+    },
+    {
+      "id": "type_of_customers_other",
+      "type": "text",
+      "label": "(other) type of customers"
+    },
+    {
+      "id": "main_products",
+      "type": "text",
+      "label": "Which products do you mainly carry?"
+    },
+    {
+      "id": "asian",
+      "type": "text",
+      "label": "Asian"
+    },
+    {
+      "id": "turkish_arab",
+      "type": "text",
+      "label": "Turkish/Arab"
+    },
+    {
+      "id": "african",
+      "type": "text",
+      "label": "African"
+    },
+    {
+      "id": "indian_srilanka_pakistan",
+      "type": "text",
+      "label": "Indian, Sri-Lanka, Pakistan"
+    },
+    {
+      "id": "russian_east_european",
+      "type": "text",
+      "label": "Russian/East European"
+    },
+    {
+      "id": "other-products",
+      "type": "text",
+      "label": "Other"
+    },
+    {
+      "id": "main_products_other",
+      "type": "text",
+      "label": "(other) main products"
+    },
+    {
+      "id": "opening_hours",
+      "type": "text",
+      "label": "Opening hours (mo - fr) "
+    },
+    {
+      "id": "opening_hours_am",
+      "type": "text",
+      "label": "Opening hours (mo - fr) from"
+    },
+    {
+      "id": "opening_hours_pm",
+      "type": "text",
+      "label": "Opening hours (mo - fr) until"
+    },
+    {
+      "type":"header",
+      "content":"Logistical information"
+    },
+    {
+      "type":"text",
+      "id":"mian-head3",
+      "label":"Logistical information"
+    },
+    {
+      "id": "delivery_address",
+      "type": "text",
+      "label": "Delivery address"
+    },
+    {
+      "id": "file_rental",
+      "type": "text",
+      "label": "Rental contract"
+    },
+    {
+      "id": "loading_hours",
+      "type": "text",
+      "label": "Loading hours (mo - fr) from"
+    },
+    {
+      "id": "loading_hours_am",
+      "type": "text",
+      "label": "Loading hours (mo - fr) from"
+    },
+    {
+      "id": "loading_hours_pm",
+      "type": "text",
+      "label": "Loading hours (mo - fr) until"
+    },
+    {
+      "id": "city_center",
+      "type": "text",
+      "label": "Situated in city center"
+    },
+    {
+      "id": "pedestrial_zone",
+      "type": "text",
+      "label": "Pedestrial zone"
+    },
+    {
+      "id": "obstacles",
+      "type": "text",
+      "label": "Obstacles (like tram tracks/locks)"
+    },
+    {
+      "id": "loading_dock",
+      "type": "text",
+      "label": "Loading dock available"
+    },
+    {
+      "id": "trucks_4ton",
+      "type": "text",
+      "label": "Area accessible for trucks (>4 tonnes)"
+    },
+    {
+      "id": "forklift_available",
+      "type": "text",
+      "label": "Forklift truck available"
+    },
+    {
+      "id": "remarks",
+      "type": "text",
+      "label": "Other remarks"
+    },
+    {
+      "id": "promotional_email",
+      "type": "text",
+      "label": "Would you like to receive promotional offers by email?"      
+    }
+  ],
+  
+  "blocks":[
+    {
+      "type":"block",
+      "name":"block",
+      "settings":[
+        {
+          "type":"text",
+          "id":"text_lang",
+          "label":"Country Language"
+        },
+        {
+          "type":"image_picker",
+          "id":"country_img",
+          "label":"Country Flag"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

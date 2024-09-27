@@ -1,0 +1,825 @@
+<div id="newcustomer" class="new_Customer_chaulien"> * = mandatory <strong class="formhead">{{ section.settings.mian-head1 }}</strong>
+  <ul class="form">
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.company_name }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="company">
+            <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="" value="" type="text" name="company">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.contact_person }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="contact">
+            <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="" value="" type="text" name="contact">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.company_manager }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="manager">
+            <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="" value="" type="text" name="manager">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.birthdate }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="birthdate">
+            <input class="wpcf7-form-control wpcf7-date wpcf7-validates-as-required wpcf7-validates-as-date" min="1940-01-01" max="2005-01-01" aria-required="true" aria-invalid="false" value="" type="date" name="birthdate">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third ">{{ section.settings.street }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last street_num_flex">
+          <label class="two-third street-label">
+            <span class="wpcf7-form-control-wrap" data-name="street">
+              <input size="40" class="wpcf7-form-control wpcf7-text " aria-required="true" aria-invalid="false" placeholder="street" value="" type="text" name="street">
+            </span>
+          </label>
+          <label class="one-third-last street-num">
+            <span class="wpcf7-form-control-wrap" data-name="number">
+              <input size="40" class="wpcf7-form-control wpcf7-text " aria-required="true" aria-invalid="false" placeholder="number" value="" type="text" name="number">
+            </span>
+          </label>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.zip }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last zip_city_flex">
+          <label class="one-third zip_code">
+            <span class="wpcf7-form-control-wrap" data-name="zip">
+              <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="zip" value="" type="text" name="zip">
+            </span>
+          </label>
+          <label class="two-third-last city_text">
+            <span class="wpcf7-form-control-wrap" data-name="city">
+              <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="city" value="" type="text" name="city">
+            </span>
+          </label>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.country }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="country">
+            <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="" value="" type="text" name="country">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third upload">
+          <span>{{ section.settings.coc }}
+            <sup>*</sup>: </span>
+          <span class="small">Example: <a href="/wp-content/uploads/2021/09/Voorbeeld-KVK-Denemarken.pdf" target="_blank" rel="nofollow">Denmark</a>. Upload a .PDF or JPG (max 10MB) </span>
+        </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="coc">
+            <input size="40" class="wpcf7-form-control wpcf7-file wpcf7-validates-as-required" accept=".pdf,.jpg,.jpeg" aria-required="true" aria-invalid="false" type="file" name="coc">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.vatnumber }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="vatnumber">
+            <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="" value="" type="text" name="vatnumber">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.email }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="email">
+            <input size="40" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" value="" type="email" name="email">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.phone }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="phone">
+            <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="" value="" type="text" name="phone">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.mobile }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="mobile">
+            <input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="" value="" type="text" name="mobile">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.language1 }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="language1">
+            <select class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false" name="language1">
+              <option value="">—Kies een optie—</option>
+              <option value="English">English</option>
+              <option value="German">German</option>
+              <option value="French">French</option>
+              <option value="Dutch">Dutch</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Thai">Thai</option>
+              <option value="Vietnamese">Vietnamese</option>
+              <option value="Turkish">Turkish</option>
+              <option value="Spanish">Spanish</option>
+              <option value="Italian">Italian</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">2 <sup>nd</sup> {{ section.settings.language2 }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="language2">
+            <select class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false" name="language2">
+              <option value="">—Kies een optie—</option>
+              <option value="English">English</option>
+              <option value="German">German</option>
+              <option value="French">French</option>
+              <option value="Dutch">Dutch</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Thai">Thai</option>
+              <option value="Vietnamese">Vietnamese</option>
+              <option value="Turkish">Turkish</option>
+              <option value="Spanish">Spanish</option>
+              <option value="Italian">Italian</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </li>
+  </ul>
+  <strong class="formhead space">{{ section.settings.mian-head2 }}</strong>
+  <ul class="form">
+    <li>
+      <div>
+        <label class="one-third more-opt">
+          <span>{{ section.settings.type_of_company}}
+            <sup>*</sup>: </span>
+          <span class="small">(more options possible)</span>
+        </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="type_of_company">
+            <span class="wpcf7-form-control wpcf7-checkbox checkbox-slect">
+              <span class="wpcf7-list-item first">
+                <label>
+                  <input type="checkbox" name="type_of_company[]" value="Asian shop">
+                  <span class="wpcf7-list-item-label">{{ section.settings.asian_shop }}</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item">
+                <label>
+                  <input type="checkbox" name="type_of_company[]" value="Asian supermarket">
+                  <span class="wpcf7-list-item-label">{{ section.settings.asian_supermarket }}</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item">
+                <label>
+                  <input type="checkbox" name="type_of_company[]" value="Wholesale/subdistributor">
+                  <span class="wpcf7-list-item-label">{{ section.settings.wholesale_subdistributor }}</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item">
+                <label>
+                  <input type="checkbox" name="type_of_company[]" value="Webshop only">
+                  <span class="wpcf7-list-item-label">{{ section.settings.webshop_only }}y</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item last">
+                <label>
+                  <input type="checkbox" name="type_of_company[]" value="Other:">
+                  <span class="wpcf7-list-item-label">{{ section.settings.other }}</span>
+                </label>
+              </span>
+            </span>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li class="type_of_company_other" style="display: none;">
+      <div>
+        <label class="one-third">{{ section.settings.type_of_company_other }}:</label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="type_of_company_other">
+            <input size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="" value="" type="text" name="type_of_company_other">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li class="type_of_company_webshop" style="display: none;">
+      <div>
+        <label class="one-third">{{ section.settings.type_of_company_webshop }}:</label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="type_of_company_webshop">
+            <input size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="" value="" type="text" name="type_of_company_webshop">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.company_size }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="company_size">
+            <select class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false" name="company_size">
+              <option value="">—Kies een optie—</option>
+              <option value="
+																													<100 M²">&lt;100 M² </option>
+              <option value="100-500 M²">100-500 M²</option>
+              <option value="500-1000 M²">500-1000 M²</option>
+              <option value=">1000 M²">&gt;1000 M²</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.warehouse_size }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="warehouse_size">
+            <select class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false" name="warehouse_size">
+              <option value="">—Kies een optie—</option>
+              <option value="No warehouse">No warehouse</option>
+              <option value="
+																														<100 M²">&lt;100 M² </option>
+              <option value="100-500 M²">100-500 M²</option>
+              <option value="500-1000 M²">500-1000 M²</option>
+              <option value=">1000 M²">&gt;1000 M²</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.company_employees }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="company_employees">
+            <select class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false" name="company_employees">
+              <option value="">—Kies een optie—</option>
+              <option value="
+																															<5">&lt;5 </option>
+              <option value="5-10">5-10</option>
+              <option value=">10">&gt;10</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.other_companies }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="other_companies">
+            <select class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false" name="other_companies">
+              <option value="">—Kies een optie—</option>
+              <option value="yes">yes</option>
+              <option value="no">no</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third more-opt">
+          <span>{{ section.settings.type_of_customers }}
+            <sup>*</sup>: </span>
+          <span class="small">(more options possible)</span>
+        </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="type_of_customers">
+            <span class="wpcf7-form-control wpcf7-checkbox checkbox-slect">
+              <span class="wpcf7-list-item first">
+                <label>
+                  <input type="checkbox" name="type_of_customers[]" value="End consumer">
+                  <span class="wpcf7-list-item-label">{{ section.settings.end_consumer }}</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item">
+                <label>
+                  <input type="checkbox" name="type_of_customers[]" value="Food service (snack corner/bistro/restaurant/catering)">
+                  <span class="wpcf7-list-item-label">{{ section.settings.food_service }}</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item">
+                <label>
+                  <input type="checkbox" name="type_of_customers[]" value="Retail stores">
+                  <span class="wpcf7-list-item-label">{{ section.settings.retail_stores }}</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item">
+                <label>
+                  <input type="checkbox" name="type_of_customers[]" value="Food industry">
+                  <span class="wpcf7-list-item-label">{{ section.settings.food_industry }}</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item last">
+                <label>
+                  <input type="checkbox" name="type_of_customers[]" value="Other:">
+                  <span class="wpcf7-list-item-label">{{ section.settings.other-customer }}</span>
+                </label>
+              </span>
+            </span>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li class="type_of_customers_other" style="display: none;">
+      <div>
+        <label class="one-third">{{ section.settings.type_of_customers_other }}:</label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="type_of_customers_other">
+            <input size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="" value="" type="text" name="type_of_customers_other">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.main_products }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="main_products">
+            <span class="wpcf7-form-control wpcf7-checkbox checkbox-slect">
+              <span class="wpcf7-list-item first">
+                <label>
+                  <input type="checkbox" name="main_products[]" value="Asian">
+                  <span class="wpcf7-list-item-label">{{ section.settings.asian }}</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item">
+                <label>
+                  <input type="checkbox" name="main_products[]" value="Turkish/Arab">
+                  <span class="wpcf7-list-item-label">{{ section.settings.turkish_arab }}</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item">
+                <label>
+                  <input type="checkbox" name="main_products[]" value="African">
+                  <span class="wpcf7-list-item-label">{{ section.settings.african }}</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item">
+                <label>
+                  <input type="checkbox" name="main_products[]" value="Indian,Sri-Lanka,Pakistan">
+                  <span class="wpcf7-list-item-label">{{ section.settings.indian_srilanka_pakistan }}</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item">
+                <label>
+                  <input type="checkbox" name="main_products[]" value="Russian/East European">
+                  <span class="wpcf7-list-item-label">{{ section.settings.russian_east_european }}</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item last">
+                <label>
+                  <input type="checkbox" name="main_products[]" value="Other:">
+                  <span class="wpcf7-list-item-label">{{ section.settings.other-products }}</span>
+                </label>
+              </span>
+            </span>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li class="main_products_other" style="display: none;">
+      <div>
+        <label class="one-third">{{ section.settings.main_products_other }}:</label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="type_of_customers_other">
+            <input size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="" value="" type="text" name="type_of_customers_other">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.opening_hours }}
+          <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <label class="one-third">{{ section.settings.opening_hours_am }}
+            <br>
+            <span class="wpcf7-form-control-wrap" data-name="opening_hours_am">
+              <select class="wpcf7-form-control wpcf7-select timimg-slct" aria-required="true" aria-invalid="false" name="opening_hours_am">
+                <option value="0:00">0:00</option>
+                <option value="0:30">0:30</option>
+                <option value="1:00">1:00</option>
+                <option value="1:30">1:30</option>
+                <option value="2:00">2:00</option>
+                <option value="2:30">2:30</option>
+                <option value="3:00">3:00</option>
+                <option value="3:30">3:30</option>
+                <option value="4:00">4:00</option>
+                <option value="4:30">4:30</option>
+                <option value="5:00">5:00</option>
+                <option value="5:30">5:30</option>
+                <option value="6:00">6:00</option>
+                <option value="6:30">6:30</option>
+                <option value="7:00">7:00</option>
+                <option value="7:30">7:30</option>
+                <option value="8:00">8:00</option>
+                <option value="8:30">8:30</option>
+                <option value="9:00">9:00</option>
+                <option value="9:30">9:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+                <option value="21:30">21:30</option>
+                <option value="22:00">22:00</option>
+                <option value="22:30">22:30</option>
+                <option value="23:00">23:00</option>
+                <option value="23:30">23:30</option>
+                <option value="3:00">3:00</option>
+              </select>
+            </span>
+          </label>
+          <label class="one-third">{{ section.settings.opening_hours_pm }}
+            <br>
+            <span class="wpcf7-form-control-wrap" data-name="opening_hours_pm">
+              <select class="wpcf7-form-control wpcf7-select timimg-slct" aria-required="true" aria-invalid="false" name="opening_hours_pm">
+                <option value="0:00">0:00</option>
+                <option value="0:30">0:30</option>
+                <option value="1:00">1:00</option>
+                <option value="1:30">1:30</option>
+                <option value="2:00">2:00</option>
+                <option value="2:30">2:30</option>
+                <option value="3:00">3:00</option>
+                <option value="3:30">3:30</option>
+                <option value="4:00">4:00</option>
+                <option value="4:30">4:30</option>
+                <option value="5:00">5:00</option>
+                <option value="5:30">5:30</option>
+                <option value="6:00">6:00</option>
+                <option value="6:30">6:30</option>
+                <option value="7:00">7:00</option>
+                <option value="7:30">7:30</option>
+                <option value="8:00">8:00</option>
+                <option value="8:30">8:30</option>
+                <option value="9:00">9:00</option>
+                <option value="9:30">9:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+                <option value="21:30">21:30</option>
+                <option value="22:00">22:00</option>
+                <option value="22:30">22:30</option>
+                <option value="23:00">23:00</option>
+                <option value="23:30">23:30</option>
+                <option value="3:00">3:00</option>
+              </select>
+            </span>
+          </label>
+        </label>
+      </div>
+    </li>
+  </ul>
+  <strong class="formhead space">{{ section.settings.mian-head3 }}</strong>
+  <ul class="form">
+    <li>
+      <div>
+        <label class="one-third delivery">
+          <span>{{ section.settings.delivery_address }}</span>
+          <span class="small">(only when different from company address)</span>
+        </label>
+        <label class="two-third-last delivery">
+          <span class="wpcf7-form-control-wrap" data-name="delivery_address">
+            <textarea cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" name="delivery_address"></textarea>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li class="rental_contract" style="display: none;">
+      <div>
+        <label class="one-third">{{ section.settings.file_rental }}*: <span class="small">(from the address above)</span>
+        </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="file-rental">
+            <input size="40" class="wpcf7-form-control wpcf7-file" accept=".pdf,.jpg,.jpeg" aria-invalid="false" type="file" name="file-rental">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.loading_hours }} <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <label class="one-third">{{ section.settings.loading_hours_am }} <br>
+            <span class="wpcf7-form-control-wrap" data-name="loading_hours_am">
+              <select class="wpcf7-form-control wpcf7-select timimg-slct" aria-required="true" aria-invalid="false" name="loading_hours_am">
+                <option value="0:00">0:00</option>
+                <option value="0:30">0:30</option>
+                <option value="1:00">1:00</option>
+                <option value="1:30">1:30</option>
+                <option value="2:00">2:00</option>
+                <option value="2:30">2:30</option>
+                <option value="3:00">3:00</option>
+                <option value="3:30">3:30</option>
+                <option value="4:00">4:00</option>
+                <option value="4:30">4:30</option>
+                <option value="5:00">5:00</option>
+                <option value="5:30">5:30</option>
+                <option value="6:00">6:00</option>
+                <option value="6:30">6:30</option>
+                <option value="7:00">7:00</option>
+                <option value="7:30">7:30</option>
+                <option value="8:00">8:00</option>
+                <option value="8:30">8:30</option>
+                <option value="9:00">9:00</option>
+                <option value="9:30">9:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+                <option value="21:30">21:30</option>
+                <option value="22:00">22:00</option>
+                <option value="22:30">22:30</option>
+                <option value="23:00">23:00</option>
+                <option value="23:30">23:30</option>
+                <option value="3:00">3:00</option>
+              </select>
+            </span>
+          </label>
+          <label class="one-third">{{ section.settings.loading_hours_pm }} <br>
+            <span class="wpcf7-form-control-wrap" data-name="loading_hours_pm">
+              <select class="wpcf7-form-control wpcf7-select timimg-slct" aria-required="true" aria-invalid="false" name="loading_hours_pm">
+                <option value="0:00">0:00</option>
+                <option value="0:30">0:30</option>
+                <option value="1:00">1:00</option>
+                <option value="1:30">1:30</option>
+                <option value="2:00">2:00</option>
+                <option value="2:30">2:30</option>
+                <option value="3:00">3:00</option>
+                <option value="3:30">3:30</option>
+                <option value="4:00">4:00</option>
+                <option value="4:30">4:30</option>
+                <option value="5:00">5:00</option>
+                <option value="5:30">5:30</option>
+                <option value="6:00">6:00</option>
+                <option value="6:30">6:30</option>
+                <option value="7:00">7:00</option>
+                <option value="7:30">7:30</option>
+                <option value="8:00">8:00</option>
+                <option value="8:30">8:30</option>
+                <option value="9:00">9:00</option>
+                <option value="9:30">9:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+                <option value="21:30">21:30</option>
+                <option value="22:00">22:00</option>
+                <option value="22:30">22:30</option>
+                <option value="23:00">23:00</option>
+                <option value="23:30">23:30</option>
+                <option value="3:00">3:00</option>
+              </select>
+            </span>
+          </label>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.city_center }} <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="city_center">
+            <select class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false" name="city_center">
+              <option value="">—Kies een optie—</option>
+              <option value="yes">yes</option>
+              <option value="no">no</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.pedestrial_zone }} <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="pedestrial_zone">
+            <select class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false" name="pedestrial_zone">
+              <option value="">—Kies een optie—</option>
+              <option value="yes">yes</option>
+              <option value="no">no</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.obstacles }}:</label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="obstacles">
+            <input size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="" value="" type="text" name="obstacles">
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.loading_dock }} <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="loading_dock">
+            <select class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false" name="loading_dock">
+              <option value="">—Kies een optie—</option>
+              <option value="yes">yes</option>
+              <option value="no">no</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.trucks_4ton }} <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="trucks_4ton">
+            <select class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false" name="trucks_4ton">
+              <option value="">—Kies een optie—</option>
+              <option value="yes">yes</option>
+              <option value="no">no</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.forklift_available }} <sup>*</sup>: </label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="forklift_available">
+            <select class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required" aria-required="true" aria-invalid="false" name="forklift_available">
+              <option value="">—Kies een optie—</option>
+              <option value="yes">yes</option>
+              <option value="no">no</option>
+            </select>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.remarks }}:</label>
+        <label class="two-third-last">
+          <span class="wpcf7-form-control-wrap" data-name="remarks">
+            <textarea cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" name="remarks"></textarea>
+          </span>
+        </label>
+      </div>
+    </li>
+    <li>
+      <div>
+        <label class="one-third">{{ section.settings.promotional_email }} <sup>*</sup>: </label>
+        <label class="two-third-last">&nbsp;&nbsp; <span class="wpcf7-form-control-wrap" data-name="promotional_email">
+            <span class="wpcf7-form-control wpcf7-checkbox wpcf7-validates-as-required wpcf7-exclusive-checkbox">
+              <span class="wpcf7-list-item first">
+                <label>
+                  <input type="checkbox" name="promotional_email" value="yes">
+                  <span class="wpcf7-list-item-label">yes</span>
+                </label>
+              </span>
+              <span class="wpcf7-list-item last">
+                <label>
+                  <input type="checkbox" name="promotional_email" value="no">
+                  <span class="wpcf7-list-item-label">no</span>
+                </label>
+              </span>
+            </span>
+          </span>
+        </label>
+      </div>
+    </li>
+  </ul>
+</div>

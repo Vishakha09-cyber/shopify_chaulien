@@ -1,0 +1,83 @@
+<div class="page-width1">
+  <div class="image-with_buttons">
+    {% for block in section.blocks %}
+      <div class="images_wrapper {{ block.settings.custm-class }}">
+        <div class="images_text" style="background:url('{{ block.settings.bg_img |img_url:'master'}}');background-size:100% 100%;">
+          <div class="images_inner">
+              <div class="btn1"><a href="{{ block.settings.text_url }}"><button class="btn_primary primary_btn"><span>{{ block.settings.btn_text }}</span></button></a></div>
+              <div class="heading_text"><span>{{ block.settings.text_head }}</span></div>
+              <div class="btn2"><a href="{{ block.settings.text_url2 }}"><button class="btn_seconday"><span>{{ block.settings.btn_text2 }}</span></button></a></div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Images with Button",
+    "settings": [],
+    "blocks": [
+      {
+        "type":"block",
+        "name":"Image with Text",
+        "settings": [
+          {
+            "type":"text",
+            "id":"custm-class",
+            "label":"Custom Class"
+          },
+          {
+            "type":"image_picker",
+            "id":"bg_img",
+            "label": "Image"
+          },
+          {
+            "type":"header",
+            "content":"Button 1"
+          },
+          {
+            "type":"text",
+            "id":"btn_text",
+            "label":"Button"
+          },
+          {
+            "type":"url",
+            "id":"text_url",
+            "label":"Button Link"
+          },
+          {
+            "type":"text",
+            "id":"text_head",
+            "label":"Heading"
+          },
+          {
+            "type":"text",
+            "id":"text_sub",
+            "label": "Sub Heading"
+          },
+          {
+            "type":"header",
+            "content":"Button 2"
+          },
+          {
+            "type":"text",
+            "id":"btn_text2",
+            "label":"Button"
+          },
+          {
+            "type":"url",
+            "id":"text_url2",
+            "label":"Button Link"
+          }
+          
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name": "Images with Button"
+      }
+    ]
+  }
+{% endschema %}

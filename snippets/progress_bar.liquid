@@ -1,0 +1,115 @@
+<div class="progressBar_cart">
+              <div class="gift_wrapper_cart">
+                
+                <div class="free_shipping_progress"> <span  class="checkout-span" style ="{% if cart.total_price < 1400 %} 
+            width: 15%; 
+          {% elsif cart.total_price >= 1600 and cart.total_price < 2600 %} 
+            width: 60%; 
+          {% else %} 
+            width: 100%; 
+          {% endif %}" creent_amt="{{ cart.total_price| money_without_currency}}"  data-check-amt="30.00"></span></div>
+                <svg class="checkout {% if cart.total_price >= 3000 %}checkout_filled {% endif %}" xmlns="http://www.w3.org/2000/svg" width="25" height="32" viewBox="0 0 25 32" fill="none">
+<rect x="0" width="25" height="32" rx="12" fill="#EAEAEA"></rect>
+<path d="M8.58594 9.33398L6.58594 12.0007V21.334C6.58594 21.6876 6.72641 22.0267 6.97646 22.2768C7.22651 22.5268 7.56565 22.6673 7.91927 22.6673H17.2526C17.6062 22.6673 17.9454 22.5268 18.1954 22.2768C18.4455 22.0267 18.5859 21.6876 18.5859 21.334V12.0007L16.5859 9.33398H8.58594Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M6.58594 12H18.5859" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15.2533 14.666C15.2533 15.3733 14.9723 16.0515 14.4722 16.5516C13.9721 17.0517 13.2938 17.3327 12.5866 17.3327C11.8793 17.3327 11.2011 17.0517 10.701 16.5516C10.2009 16.0515 9.91992 15.3733 9.91992 14.666" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+                 <div class="free_shipping_progress"> <span class="shipping-span"  style ="{% if cart.total_price > 3100 and cart.total_price <  4600 %} 
+            width: 15%; 
+          {% elsif cart.total_price >= 4600 and cart.total_price <  5600 %} 
+            width: 60%; 
+          {% elsif cart.total_price >= 6000 %} 
+            width: 100%; 
+          {% endif %}"creent_amt="{{ cart.total_price | money_without_currency }}" data-ship-amt="60.00"></span></div>   
+                 <svg class="truck {% if cart.total_price >= 6000 %}shipping_filled {% endif %} " xmlns="http://www.w3.org/2000/svg" width="25" height="32" viewBox="0 0 25 32" fill="none">
+<rect x="0" width="25" height="32" rx="12" fill="#EAEAEA"></rect>
+<g clip-path="url(#clip0_5518_7519)">
+<path d="M8.58529 15.3333H5.25195M10.5853 13.3333H5.25195M5.25195 11.3333V10H14.5853V18.6667H5.25195V17.3333" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M14.5859 12H17.6336L19.9193 14.25V18.6667H14.5859V12Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M8.2526 21.9993C9.17308 21.9993 9.91927 21.2532 9.91927 20.3327C9.91927 19.4122 9.17308 18.666 8.2526 18.666C7.33213 18.666 6.58594 19.4122 6.58594 20.3327C6.58594 21.2532 7.33213 21.9993 8.2526 21.9993Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M16.9186 21.9993C17.8391 21.9993 18.5853 21.2532 18.5853 20.3327C18.5853 19.4122 17.8391 18.666 16.9186 18.666C15.9981 18.666 15.252 19.4122 15.252 20.3327C15.252 21.2532 15.9981 21.9993 16.9186 21.9993Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</g>
+<defs>
+<clipPath id="clip0_5518_7519">
+<rect width="16" height="16" fill="white" transform="translate(4.58594 8)"></rect>
+</clipPath>
+</defs>
+</svg>
+                 <div class="free_shipping_progress"> <span class="gift-span" style ="{% if cart.total_price > 6100 and cart.total_price <  6400 %} 
+            width: 15%; 
+          {% elsif cart.total_price >= 6400 and cart.total_price <  7400 %} 
+            width: 60%; 
+          {% elsif cart.total_price >= 7500 %} 
+            width: 100%; 
+          {% endif %}" creent_amt="{{ cart.total_price| money_without_currency }}" data-gift-amt="75.00"></span></div>  
+                  <svg class="gift {% if cart.total_price >= 7500 %}gift_filled {% endif %}" data-product-id="43251194855619" data-product-handle="japanese-kit-kat-rich-green-tea-free-gift" xmlns="http://www.w3.org/2000/svg" width="25" height="32" viewBox="0 0 25 32" fill="none">
+<rect x="0" width="25" height="32" rx="12" fill="#EAEAEA"></rect>
+<path d="M17.8132 16V22.6667H7.14648V16" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M19.1478 12.666H5.81445V15.9993H19.1478V12.666Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M12.4805 22.666V12.666" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M12.4811 12.6673H9.48112C9.03909 12.6673 8.61517 12.4917 8.30261 12.1792C7.99005 11.8666 7.81445 11.4427 7.81445 11.0007C7.81445 10.5586 7.99005 10.1347 8.30261 9.82214C8.61517 9.50958 9.03909 9.33398 9.48112 9.33398C11.8145 9.33398 12.4811 12.6673 12.4811 12.6673Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M12.4805 12.6673H15.4805C15.9225 12.6673 16.3464 12.4917 16.659 12.1792C16.9715 11.8666 17.1471 11.4427 17.1471 11.0007C17.1471 10.5586 16.9715 10.1347 16.659 9.82214C16.3464 9.50958 15.9225 9.33398 15.4805 9.33398C13.1471 9.33398 12.4805 12.6673 12.4805 12.6673Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+              </div>
+            </div>
+
+
+            <script>
+              function updateCartUI() {
+    $.getJSON('/cart.js', function(cart) { 
+        var total_amt = parseFloat(cart.total_price / 100); 
+        var range_amt;
+        var update_amt;
+        if (total_amt < 30) {
+            range_amt = parseFloat($('.progressBar_cart .gift_wrapper_cart .free_shipping_progress span').attr('data-check-amt'));
+            update_amt = (total_amt >= range_amt) ? 0 : range_amt - total_amt;
+            var formatted_update_amt = "Add $" + update_amt.toFixed(2);
+            $('.floating_text_crat p.bar-shipping-text span.price_bar').text(formatted_update_amt);
+
+        } else if (total_amt >= 30 && total_amt < 60) {
+         setTimeout(function(){
+            range_amt = parseFloat($('.progressBar_cart .gift_wrapper_cart .free_shipping_progress span.shipping-span').attr('data-ship-amt'));
+            update_amt = (total_amt >= range_amt) ? 0 : range_amt - total_amt;
+            setTimeout(function(){
+            var formatted_update_amt = "Add $" + update_amt.toFixed(2);
+            $('.floating_text_crat p.bar-shipping-text span.price_bar').text(formatted_update_amt);
+              console.log('Amount - ',formatted_update_amt)
+              },1000); 
+            $('.floating_text_crat .bar-markup-heading').text('You’ve unlocked checkout !');
+            $('.floating_text_crat p.bar-shipping-text span.text').text('to get free express shipping');
+         },1000);
+        } else if (total_amt >= 60 && total_amt < 75) {
+           setTimeout(function(){
+            range_amt = parseFloat($('.progressBar_cart .gift_wrapper_cart .free_shipping_progress span.gift-span').attr('data-gift-amt'));
+            update_amt = (total_amt >= range_amt) ? 0 : range_amt - total_amt;
+            var formatted_update_amt = "Add $" + update_amt.toFixed(2);
+        $('.floating_text_crat p.bar-shipping-text span.price_bar').text(formatted_update_amt);
+          $('.floating_text_crat .bar-markup-heading').text('You’ve unlocked free express shipping!');
+          $('.floating_text_crat p.bar-shipping-text span.text').text('to get a free gift');
+        console.log("update Amt - ", formatted_update_amt);
+              },1000);
+        } else if (total_amt >= 75) {
+             $('.floating_text_crat p.bar-shipping-text span').text(formatted_update_amt);
+          $('.floating_text_crat .bar-markup-heading').text('You’ve unlocked a free gift!');
+          $('.floating_text_crat p.bar-shipping-text').text(' ');
+        } 
+        
+    });
+}
+
+
+setInterval(updateCartUI, 1000);
+
+
+$(document).ready(function() {
+    updateCartUI();
+});
+
+              
+            </script>
+
+
+
+
+
+            

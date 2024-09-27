@@ -1,0 +1,152 @@
+<div class="product_details" style="display:flex;gap:100px; align-items:center;">
+    <div class="product_media" > 
+         {% if block.settings.product_img %} <img src="{{ product.featured_image | img_url:'medium' }}" alt="{{ product.title }}">{% endif %}
+       </div>
+    <div class="product_content">
+          <div class="product_conetnt_wrapper" > 
+             <h1 class=product_title>{{ product.title }}</h1>
+            <div>
+              <table>
+  <tbody>
+    {% if block.settings.article_check %}
+      <tr>
+        <td>{{ block.settings.article_no }}</td>
+        <td>{{ product.selected_or_first_available_variant.sku }}</td>
+      </tr>
+    {% endif %}
+    
+    {% if block.settings.quant_check %}
+      <tr>
+        <td>{{ block.settings.quanty }}</td>
+        <td>
+          {% unless product.has_only_default_variant %}
+            {% for variant in product.variants %}
+              {% assign option1_name = product.options_with_values[0].name %}
+              
+              {% if product.options_with_values.size > 1 %}
+                {% assign option2_name = product.options_with_values[1].name %}
+              {% else %}
+                {% assign option2_name = '' %}
+              {% endif %}
+              
+              {% if option1_name == "Quantity" %}
+                {% assign quantity_value = variant.options[0] %}
+              {% elsif option2_name == "Quantity" %}
+                {% assign quantity_value = variant.options[1] %}
+              {% else %}
+                {% assign quantity_value = '' %}
+              {% endif %}
+              
+              {% unless quantity_value == '' or variant.title == 'Default Title' %}
+                <span>{{ quantity_value }} 
+                  {% if product.metafields.custom.brand_name.value != blank %}
+                    X {{ product.metafields.custom.brand_name.value }}
+                  {% endif %}
+                </span>
+              {% endunless %}
+            {% endfor %}
+          {% endunless %}
+        </td>
+      </tr>
+    {% endif %}
+    
+    {% if block.settings.country_nme %}
+      <tr>
+        <td>{{ block.settings.country }}</td>
+        <td>{{ product.metafields.custom.country_name.value }}</td>
+      </tr>
+    {% endif %}
+    
+    {% if block.settings.show_brand %}
+      <tr>
+        <td>{{ block.settings.brand_label }}</td>
+        <td>{{ product.vendor }}</td>
+      </tr>
+    {% endif %}
+    
+    {% if block.settings.show_category %}
+      <tr>
+        <td>{{ block.settings.category_label }}</td>
+        <td>{{ product.type }}</td>
+      </tr>
+    {% endif %}
+    
+    {% if block.settings.show_sub_category %}
+      <tr>
+        <td>{{ block.settings.sub_category_label }}</td>
+        <td>{{ product.metafields.custom.sub_category.value }}</td>
+      </tr>
+    {% endif %}
+    
+    {% if block.settings.gross_weight_check %}
+      <tr>
+        <td>{{ block.settings.gross_weight_label }}</td>
+        <td>{{ product.metafields.custom.gross_weight.value }}</td>
+      </tr>
+    {% endif %}
+    {% if block.settings.gtin13_check %}
+      <tr>
+        <td>{{ block.settings.gtin13_label }}</td>
+        <td>{{ product.metafields.custom.gtin13.value }}</td>
+      </tr>
+    {% endif %}
+    
+    {% if block.settings.gtin14_check %}
+      <tr>
+        <td>{{ block.settings.gtin14_label }}</td>
+        <td>{{ product.metafields.custom.gtin14_su.value }}</td>
+      </tr>
+    {% endif %}
+   
+  </tbody>
+</table>
+  
+            </div>
+          </div>
+        </div>
+ </div>
+  {% if block.settings.description_check %}
+    <div>
+      <h2>{{ block.settings.description_label }}</h2>
+        <span>{{ block.settings.description_text}}</span>
+    </div>
+    {% endif %}
+  {% if block.settings.show_ingredients %}
+  <div>
+    <h2>{{ block.settings.ingredients_label }}</h2>
+    <div>{{ block.settings.ingredients_info  }}</div>
+  </div>
+{% endif %}         
+    
+{% if block.settings.nuteit_check %}
+   <div class="show_nutrition">
+          <div class="nutritional_values_product">
+      <h2 class="nutritional_heading">Nutritional values </h2>
+      <span>These values apply to the unprepared product.</span>
+      {% assign nutritional_kind = product.metafields.custom.nutritional_heading.value %}
+      {% assign nutritional_value = product.metafields.custom.nutritional_value.value %}
+     
+      <div class="nutritional_values_table" >
+        <table>
+          <thead>
+            <tr>
+              <th>{{ nutritional_kind | first  }}</th>
+              <th>{{ nutritional_value | first}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for kind in nutritional_kind %}
+  {% if forloop.index0 != 0 %}  
+    <tr>
+      <td>{{ kind }}</td>
+      <td>{{ nutritional_value[forloop.index0] }}</td> 
+    </tr>
+  {% endif %}
+{% endfor %}
+          </tbody>
+        </table>
+        </div>
+    </div>
+      </div>
+{% endif %}
+   

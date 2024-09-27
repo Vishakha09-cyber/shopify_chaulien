@@ -1,0 +1,229 @@
+{% layout none %}
+{% if cart.item_count == 0 %}
+  <div class="cart-drawer__collection_upsell">
+    <div class="collection_upsell_list">
+
+  {% for product in collections['ampawa'].products %}
+          
+  <div
+    data-index="{{ forloop.index }}"
+    item="{{ item_tag }}"
+    tag="{{ product.type }}"
+    class="upsell-grid"
+    data-collectionname="{{ product.collections.first.handle }}"
+  >
+    <div class="media_upsell">
+      <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+    </div>
+
+    <div class="upsell_information">
+      <h3 class="upsell_heading h5">
+        <a href="{{ product.url }}" class="full-unstyled-link">
+          {{ product.title }}
+        </a>
+      </h3>
+      <div class="price-upsell">{% if customer %}{{ product.price | money }}{% endif %}</div>  
+    </div>
+
+    <div class="collection_upsell_button responsive_upsell_button">
+      <div class="chaulein_options">
+        {% if product.variants.size > 1 %}
+          <div class="lsp_size">
+            <h3>CHOOSE YOUR FIT</h3>
+            <ul class="size_lsp">
+              {% for variant in product.variants %}
+                <li
+                  class="{% if forloop.first %}active_size{% endif %} {% if variant.inventory_quantity == 0 %}zero-qty{% endif %}"
+                  tr="{{ variant.title }}"
+                  td="{{ product.title }}"
+                  qty="{{ variant.inventory_quantity }}"
+                  varid="{{ variant.id }}"
+                >
+                  {{ variant.title }}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+        
+        <button
+  id="Collection_addtocart_{{ product.id }}"
+  newid="{{ product.first_available_variant.id }}"
+  class="product_quantity {% if product.metafields.custom.free_product != blank %}add_cart_product{% endif %}"
+>
+  <span class="quick-view-open" data-product-url="{{ product.url }}" data-variant-id="{{ product.first_available_variant.id }}"> + </span>
+</button>
+
+     
+
+        {% if product.metafields.custom.free_product != blank %}
+          <div class="variants_free" style="display:none;">
+            {% for card_product_variants_all in all_products[product.metafields.custom.free_product].variants %}
+              <span data-title="{{ card_product_variants_all.title }}">
+                {{- card_product_variants_all.id -}}
+              </span>
+            {% endfor %}
+          </div>
+          <span class="another_id" style="display:none;">
+            {{- all_products[product.metafields.custom.free_product].selected_or_first_available_variant.id -}}
+          </span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+           
+{% endfor %}
+
+          
+      
+    </div>
+  </div>
+  {% else %}
+   <div class="cart-drawer__collection_upsell">
+    <div class="collection_upsell_list">
+    {% assign upsellCollection = settings.cart_drawer_collection %}
+{% paginate collections[upsellCollection].products by 60 %}
+  {% assign added_products = "" %}
+  {% assign cart_product_handles = "" %}
+  {% for item in cart.items %}
+    {% assign cart_product_handles = cart_product_handles | append: item.product.handle | append: ',' %}
+  {% endfor %}
+  {% for product in collections[upsellCollection].products %}
+    {% for item in cart.items %}
+      {% assign item_tag = item.product.type %}
+      {% if product.type contains item_tag %}
+        {% unless product.handle == item.product.handle or added_products contains product.handle or cart_product_handles contains product.handle %}
+          <!-- Add your product display code here -->
+          {% assign added_products = added_products | append: product.handle | append: ',' %}
+              <div
+                {{ forloop.index }}
+                item="{{ item_tag }}"
+                tag="{{ product.type }}"
+                class="upsell-grid"
+                data-collectionname="{{ product.collections.first.handle }}"
+              >
+                <div class="media_upsell">
+                  <img src="{{ product.featured_image | img_url:'medium' }}">
+                  {% comment %}<div class="collection_upsell_button">
+                    <div class="lsp_options">
+                      {% comment %}
+                        {% if product.variants.size > 1 %}
+                          <modal-opener
+                            class="product-popup-modal__opener no-js-hidden quick-add-hidden"
+                            data-modal="#PopupModal-upsell-{{ product.handle }}"
+                          >
+                            <button
+                              class="product-popup-modal__button link product_size_upsell"
+                              id="openDrawerButton"
+                              type="button"
+                              aria-haspopup="dialog"
+                            >
+                              <span class="quick-view-open_upsell" data-title="{{ product.title }}">QUICK VIEW</span>
+                            </button>
+                          </modal-opener>
+                        {% else %}
+                        {% endif %}
+                      {% endcomment %}
+                      {% if product.variants.size > 1 %}
+                        <div class="lsp_size">
+                          <h3>CHOOSE YOUR FIT</h3>
+                          <ul class="size_lsp">
+                            {% for variant in product.variants %}
+                              <li
+                                class="{% if forloop.first %}active_size{% endif %} {% if  variant.inventory_quantity == 0  %} zero-qty {% endif %}"
+                                tr="{{ variant.title }}"
+                                td="{{ product.title}}"
+                                qty="{{ variant.inventory_quantity }}"
+                                varid="{{ variant.id }}"
+                              >
+                                {{ variant.title }}
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
+                      <button
+                        id="Collection_addtocard"
+                        newid="{{ product.first_available_variant.id }}"
+                        class="
+                          product_size
+                          {% if product.metafields.custom.free_product != blank %}add_cart_product{% endif %}
+                        "
+                      >
+                        <span class="quick-view-open" data-product-url="{{ product.url }}">QUICK ADD TO BAG</span>
+                      </button>
+
+                      {% if product.metafields.custom.free_product != blank %}
+                        <div class="variants_free" style="display:none;">
+                          {% for card_product_variants_all in all_products[product.metafields.custom.free_product].variants %}
+                            <span data-title="{{ card_product_variants_all.title }}">
+                              {{- card_product_variants_all.id -}}
+                            </span>
+                          {% endfor %}
+                        </div>
+                        <span class="another_id" style="display:none">
+                          {{- all_products[product.metafields.custom.free_product].selected_or_first_available_variant.id -}}
+                        </span>
+                      {% endif %}
+                    </div>
+                  </div>{% endcomment %}
+                </div>
+                <div class="upsell_information">
+                  <h3 class="upsell_heading h5">
+                    <a href="{{ product.url }}" class="full-unstyled-link">
+                      {{ product.title }}
+                    </a>
+                  </h3>
+                  <div class="price-upsell">{% if customer %}{{ product.price | money }}{% endif %}</div>  
+                </div>
+          <div class="collection_upsell_button responsive_upsell_button">
+                    <div class="chaulein_options">
+                      {% if product.variants.size > 1 %}
+                        <div class="lsp_size">
+                          <h3>CHOOSE YOUR FIT</h3>
+                          <ul class="size_lsp">
+                            {% for variant in product.variants %}
+                              <li
+                                class="{% if forloop.first %}active_size{% endif %} {% if  variant.inventory_quantity == 0  %} zero-qty {% endif %}"
+                                tr="{{ variant.title }}"
+                                td="{{ product.title}}"
+                                qty="{{ variant.inventory_quantity }}"
+                                varid="{{ variant.id }}"
+                              >
+                                {{ variant.title }}
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
+                      <button
+  id="Collection_addtocart_{{ product.id }}"
+  newid="{{ product.first_available_variant.id }}"
+  class="product_quantity {% if product.metafields.custom.free_product != blank %}add_cart_product{% endif %}"
+>
+  <span class="quick-view-open" data-product-url="{{ product.url }}" data-variant-id="{{ product.first_available_variant.id }}"> + </span>
+</button>
+
+
+                      {% if product.metafields.custom.free_product != blank %}
+                        <div class="variants_free" style="display:none;">
+                          {% for card_product_variants_all in all_products[product.metafields.custom.free_product].variants %}
+                            <span data-title="{{ card_product_variants_all.title }}">
+                              {{- card_product_variants_all.id -}}
+                            </span>
+                          {% endfor %}
+                        </div>
+                        <span class="another_id" style="display:none">
+                          {{- all_products[product.metafields.custom.free_product].selected_or_first_available_variant.id -}}
+                        </span>
+                      {% endif %}
+                    </div>
+                  </div>
+              </div>
+                {% endunless %}
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      {% endpaginate %}
+    </div>
+  </div>{% endif %}

@@ -1,0 +1,74 @@
+<div style="padding-top:{{ section.settings.pad_top }}px;padding-bottom:{{ section.settings.pad_bottom }}px;">
+ <div class="ribbion_slideshow  {{ section.settings.custm-head }}">
+   {% if section.settings.text_head != blank %}<div class="ribbion_heading"><span>{{ section.settings.text_head}}</span></div>{% endif %}
+   <div class="ribbion_slider ">
+     {% for block in section.blocks %} 
+         <div class="ribbion_item {{ section.settings.custm-head }} item--{{ forloop.index }}">
+          {% if block.settings.image_slide != blank %} <a href="{{ block.settings.brand_url }}"><img src="{{  block.settings.image_slide |img_url:'master' }}"></a>{% endif %}
+         </div> 
+     {% endfor %}
+   </div>
+ </div> 
+</div>
+
+{% schema %}
+  {
+    "name": "Ribbion SlideShow",
+    "settings": [
+      {
+        "type":"text",
+        "id":"text_head",
+        "label": "Heading"
+      },
+      {
+        "type":"text",
+        "id":"custm-head",
+        "label":"Custom Class"
+      },
+      {
+        "type": "range",
+        "id": "pad_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "pad_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 0
+      }
+    ],
+    "blocks":[
+      {
+        "type":"block",
+        "name":"Slide",
+        "settings": [
+          {
+            "type":"image_picker",
+            "id":"image_slide",
+            "label":"Image"
+          },
+          {
+            "type":"url",
+            "id":"brand_url",
+            "label":"Brand URL"
+          }
+          
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Ribbion SlideShow"
+      }
+    ]
+  }
+{% endschema %}

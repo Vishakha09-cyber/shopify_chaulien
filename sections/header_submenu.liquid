@@ -1,0 +1,66 @@
+<div class="page-width1">
+  <div style="padding-top:{{ section.settings.pad_top }}px;padding-bottom:{{ section.settings.pad_bottom }}px;">
+    <div class="submenu_header">
+       {% render 'header-dropdown-menu' %}
+      
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Header Submenu",
+    "settings": [
+      {
+        "type":"link_list",
+        "id":"menu",
+        "label":"SubMenu"
+      },
+      {
+        "type": "range",
+        "id": "pad_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "pad_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "pad_mob_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding top",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "pad_mob_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 20
+      }
+    ],
+    "presets": [
+      {
+        "name": "Header Submenu"
+      }
+    ]
+  }
+{% endschema %}
